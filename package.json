@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "electron": "^4.0.4",
     "electron-prebuilt": "^1.4.13"
   },
   "scripts": {
@@ -12,9 +13,9 @@
     "front-build": "rm front/*.*; parcel build front/src/*.pug --target electron --out-dir front/ --public-url ./"
   },
   "devDependencies": {
-    "sass": "^1.17.0",
     "parcel-bundler": "^1.11.0",
     "pug": "^2.0.3",
+    "sass": "^1.17.0",
     "stylus": "^0.54.5"
   }
 }

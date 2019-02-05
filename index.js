@@ -6,6 +6,7 @@ const app = electron.app
 const BrowserWindow = electron.BrowserWindow
 const Menu = electron.Menu
 const dialog = electron.dialog
+const ipcMain = electron.ipcMain
 
 let mainWindow
 let settingsWindow
@@ -33,7 +34,6 @@ const showAboutDialog = () => {
 const showSettingWindow = () => {
   settingsWindow = new BrowserWindow({ width: 600, height: 400 })
   settingsWindow.loadURL(path.join('file://', __dirname, '/front/settings.html'))
-  settingsWindow.webContents.openDevTools()
   settingsWindow.on('closed', () => {
     settingsWindow = null
   })
@@ -46,6 +46,7 @@ const createMainWindow = () => {
   mainWindow = new BrowserWindow({ width: 1280, height: 720 })
   mainWindow.loadURL(path.join('file://', __dirname, '/front/index.html'))
   mainWindow.webContents.openDevTools()
+  updateMainView()
   mainWindow.on('closed', () => {
     mainWindow = null
   })
@@ -65,4 +66,19 @@ app.on('activate', () => {
   if (mainWindow == null) {
     createMainWindow()
   }
+})
+
+let viewParams = {
+  title: 'data1',
+  artist: 'data2',
+  color: '#6F3381'
+}
+
+const updateMainView = () => {
+  mainWindow.webContents.send('updateMainView', viewParams)
+}
+
+ipcMain.on('updateParams', (ev, params) => {
+  Object.assign(viewParams, params)
+  updateMainView()
 })
