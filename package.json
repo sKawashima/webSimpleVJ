@@ -15,7 +15,7 @@
     "start": "yarn front-build; electron index.js",
     "dev": "parcel front/src/*.pug --open",
     "front-build": "rm front/*.*; parcel build front/src/*.pug --target electron --out-dir front/ --public-url ./",
-    "build": "yarn front-build; electron-packager ./"
+    "build": "yarn front-build; electron-packager ./ --overwrite"
   },
   "devDependencies": {
     "parcel-bundler": "^1.11.0",
