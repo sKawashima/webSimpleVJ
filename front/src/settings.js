@@ -17,7 +17,9 @@ document.getElementById('sendButton').addEventListener('click', () => {
 })
 
 document.getElementById('clearButton').addEventListener('click', () => {
-  sendParam('■■■■■■■■■■', '■■■■■■■■■■')
+  r.title = '■■■■■■■■■■'
+  r.artist = '■■■■■■■■■■'
+  sendParam()
 })
 
 AColorPicker.from('.picker')
