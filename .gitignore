@@ -1,5 +1,6 @@
 dist
 front/*.*
+SimpleVJ-darwin-x64
 
 # Created by https://www.gitignore.io/api/macOS,node
 # Edit at https://www.gitignore.io/?templates=macOS,node
