@@ -1,6 +1,6 @@
 {
   "name": "SimpleVJ",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
@@ -13,7 +13,8 @@
   "scripts": {
     "start": "yarn front-build; electron index.js",
     "dev": "parcel front/src/*.pug --open",
-    "front-build": "rm front/*.*; parcel build front/src/*.pug --target electron --out-dir front/ --public-url ./"
+    "front-build": "rm front/*.*; parcel build front/src/*.pug --target electron --out-dir front/ --public-url ./",
+    "build": "yarn front-build; electron-packager ./"
   },
   "devDependencies": {
     "parcel-bundler": "^1.11.0",
