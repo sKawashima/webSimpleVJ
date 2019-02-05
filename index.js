@@ -43,7 +43,7 @@ let menu = Menu.buildFromTemplate(menuTemplate)
 
 const createMainWindow = () => {
   Menu.setApplicationMenu(menu)
-  mainWindow = new BrowserWindow({ width: 600, height: 400 })
+  mainWindow = new BrowserWindow({ width: 1280, height: 720 })
   mainWindow.loadURL(path.join('file://', __dirname, '/front/index.html'))
   mainWindow.webContents.openDevTools()
   mainWindow.on('closed', () => {

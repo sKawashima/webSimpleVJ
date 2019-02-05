@@ -3,6 +3,7 @@ body
   background-color: #333
   height: 100vh
   margin: 0
+  font-family: sans-serif
 
 #app
   padding: 1em
@@ -22,5 +23,18 @@ body
   #separator
     flex-grow: 1
   #change
-    button
-      font-size: 1.5em
+    display: flex
+    justify-content: space-between
+    .btn
+      font-size: 1.2em
+      display: inline-block
+      padding: 0.2em 1em
+      text-decoration: none
+      color: #67c5ff
+      border: solid 2px #67c5ff
+      border-radius: 3px
+      transition: .1s
+      cursor: pointer
+      &:hover
+        background: #67c5ff
+        color: white
