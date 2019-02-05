@@ -2,17 +2,17 @@ doctype html
 meta(charset='utf-8')
 title settings
 
-h1 Background Color
-ul
-  li
-    label
-      input(type='radio', name='colors', value='skyblue')
-      |  Skyblue
-  li
-    label
-      input(type='radio', name='colors', value='tomato')
-      |  Tomato
-  li
-    label
-      input(type='radio', name='colors', value='slategray')
-      |  Slate Gray
+#app
+  #textinput
+    label 楽曲名
+    input#title(type='text')
+    label アーティスト名
+    input#artist(type='text') 
+  #color
+    label カラーピッカー
+  #separator
+  #change
+    button#sendButton(autofocus) 更新
+    button#clearButton 表示を消す
+
+script(src="./settings.js")
