@@ -1,0 +1,12 @@
+{
+  "name": "webSimpleVJ",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "electron-prebuilt": "^1.4.13"
+  },
+  "scripts": {
+    "start": "electron index.js"
+  }
+}
