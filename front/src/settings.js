@@ -6,7 +6,7 @@ const AColorPicker = require('a-color-picker')
 let r = {}
 
 const sendParam = (title, artist) => {
-  console.log(r)
+  // console.log(r)
   ipcRenderer.send('updateParams', r)
 }
 
