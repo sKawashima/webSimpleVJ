@@ -32,8 +32,9 @@ const showAboutDialog = () => {
 }
 
 const showSettingWindow = () => {
-  settingsWindow = new BrowserWindow({ width: 600, height: 400 })
+  settingsWindow = new BrowserWindow({ width: 500, height: 600 })
   settingsWindow.loadURL(path.join('file://', __dirname, '/front/settings.html'))
+  // settingsWindow.webContents.openDevTools()
   settingsWindow.on('closed', () => {
     settingsWindow = null
   })
@@ -45,7 +46,7 @@ const createMainWindow = () => {
   Menu.setApplicationMenu(menu)
   mainWindow = new BrowserWindow({ width: 1280, height: 720 })
   mainWindow.loadURL(path.join('file://', __dirname, '/front/index.html'))
-  mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools()
   updateMainView()
   mainWindow.on('closed', () => {
     mainWindow = null
