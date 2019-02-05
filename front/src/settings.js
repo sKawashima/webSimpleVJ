@@ -3,6 +3,9 @@ import './settings.sass'
 const ipcRenderer = require('electron').ipcRenderer
 const AColorPicker = require('a-color-picker')
 
+const inputTitle = document.getElementById('title')
+const inputArtist = document.getElementById('artist')
+
 let r = {}
 
 const sendParam = (title, artist) => {
@@ -11,8 +14,8 @@ const sendParam = (title, artist) => {
 }
 
 document.getElementById('sendButton').addEventListener('click', () => {
-  r.title = document.getElementById('title').value
-  r.artist = document.getElementById('artist').value
+  r.title = inputTitle.value
+  r.artist = inputArtist.value
   sendParam()
 })
 
@@ -27,3 +30,11 @@ AColorPicker.from('.picker')
     document.getElementById('app').style.backgroundColor = color
     r.color = color
   })
+
+inputTitle.addEventListener('click', () => {
+  inputTitle.select(0, inputTitle.value.length)
+})
+
+inputArtist.addEventListener('click', () => {
+  inputArtist.select(0, inputArtist.value.length)
+})

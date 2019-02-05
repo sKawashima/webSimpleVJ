@@ -32,9 +32,9 @@ const showAboutDialog = () => {
 }
 
 const showSettingWindow = () => {
-  settingsWindow = new BrowserWindow({ width: 500, height: 600, resizable: true })
+  settingsWindow = new BrowserWindow({ width: 500, height: 600, resizable: false })
   settingsWindow.loadURL(path.join('file://', __dirname, '/front/settings.html'))
-  // settingsWindow.webContents.openDevTools()
+  settingsWindow.webContents.openDevTools()
   settingsWindow.on('closed', () => {
     settingsWindow = null
   })
