@@ -1,6 +1,10 @@
 import './index.styl'
 import ShuffleText from 'shuffle-text'
+import visualizer from 'visualizer.js'
 
+const viz = visualizer({
+  parent: '#background'
+})
 const ipcRenderer = require('electron').ipcRenderer
 
 const changeText = (params) => {
@@ -17,6 +21,14 @@ const updateViews = (params) => {
     document.getElementById('background').style.backgroundColor = params.color
   }
   changeText(params)
+
+  let vizNumber = Math.floor(Math.random() * 7)
+  while (vizNumber === 4) {
+    vizNumber = Math.floor(Math.random() * 7)
+    viz.vary()
+  }
+  console.log(vizNumber)
+  viz.showVisualization(vizNumber)
 }
 
 ipcRenderer.on('updateMainView', (ev, params) => {
