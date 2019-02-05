@@ -8,5 +8,9 @@
   },
   "scripts": {
     "start": "electron index.js"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.11.0",
+    "pug": "^2.0.3"
   }
 }
