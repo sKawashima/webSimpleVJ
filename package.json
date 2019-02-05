@@ -9,7 +9,7 @@
   "scripts": {
     "start": "yarn front-build; electron index.js",
     "dev": "parcel front/src/*.pug --open",
-    "front-build": "parcel build front/src/*.pug --target electron --out-dir front/ --public-url ./"
+    "front-build": "rm front/*.*; parcel build front/src/*.pug --target electron --out-dir front/ --public-url ./"
   },
   "devDependencies": {
     "sass": "^1.17.0",
