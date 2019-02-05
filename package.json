@@ -4,10 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "electron-prebuilt": "^1.4.13"
+    "electron-prebuilt": "^1.4.13",
+    "stylus": "^0.54.5"
   },
   "scripts": {
-    "start": "electron index.js"
+    "start": "yarn front-build; electron index.js",
+    "dev": "parcel front/src/*.pug --target electron",
+    "front-build": "parcel build front/src/*.pug --target electron --out-dir front/"
   },
   "devDependencies": {
     "parcel-bundler": "^1.11.0",
