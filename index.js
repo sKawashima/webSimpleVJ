@@ -8,6 +8,7 @@ const Menu = electron.Menu
 const dialog = electron.dialog
 
 let mainWindow
+let settingsWindow
 
 let menuTemplate = [{
   label: 'meu',
@@ -25,11 +26,18 @@ const showAboutDialog = () => {
     type: 'info',
     buttons: ['OK'],
     message: 'About',
-    detail: 'だって欲しかったんだもん'
+    detail: '超シンプルにVJしたかった'
   })
 }
 
-const showSettingWindow = () => {}
+const showSettingWindow = () => {
+  settingsWindow = new BrowserWindow({ width: 600, height: 400 })
+  settingsWindow.loadURL(path.join('file://', __dirname, '/settings.html'))
+  settingsWindow.webContents.openDevTools()
+  settingsWindow.on('closed', () => {
+    settingsWindow = null
+  })
+}
 
 let menu = Menu.buildFromTemplate(menuTemplate)
 
