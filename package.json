@@ -6,7 +6,8 @@
   "dependencies": {
     "a-color-picker": "^1.1.7",
     "electron": "^4.0.4",
-    "electron-prebuilt": "^1.4.13"
+    "electron-prebuilt": "^1.4.13",
+    "shuffle-text": "^0.2.8"
   },
   "scripts": {
     "start": "yarn front-build; electron index.js",
