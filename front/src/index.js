@@ -8,12 +8,12 @@ const viz = visualizer({
 const ipcRenderer = require('electron').ipcRenderer
 
 const changeText = (params) => {
-  if (document.getElementById('title').innerHTML !== params.title) {
+  if (document.getElementById('title').innerHTML !== params.title || document.getElementById('display').style.fontFamily !== params.font) {
     document.getElementById('title').innerHTML = params.title
     const title = new ShuffleText(document.getElementById('title'))
     title.start()
   }
-  if (document.getElementById('artist').innerHTML !== params.artist) {
+  if (document.getElementById('artist').innerHTML !== params.artist || document.getElementById('display').style.fontFamily !== params.font) {
     document.getElementById('artist').innerHTML = params.artist
     const artist = new ShuffleText(document.getElementById('artist'))
     artist.start()
@@ -25,6 +25,9 @@ const updateViews = (params) => {
     document.getElementById('background').style.backgroundColor = params.color
   }
   changeText(params)
+  if (params.font) {
+    document.getElementById('display').style.fontFamily = params.font
+  }
 
   let vizNumber = Math.floor(Math.random() * 7)
   while (vizNumber === 4) {

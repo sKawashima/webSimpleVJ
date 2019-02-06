@@ -3,15 +3,17 @@ meta(charset='utf-8')
 title settings
 
 #app
-  .grid
-    #textinput
-      label Song Title
-      input#title(type='text')
-      label Artist
-      input#artist(type='text') 
-    #color
-      label Color
-      .picker(acp-color='#6F3381' acp-show-rgb='no' acp-show-hsl='no')
+  #textinput
+    label Song Title
+    input#title(type='text')
+    label Artist
+    input#artist(type='text') 
+  #color
+    label Color
+    .picker(acp-color='#6F3381' acp-show-rgb='no' acp-show-hsl='no')
+  #select
+    label Font
+    #font
   #separator
   #change
     a.btn#sendButton(autofocus) Update
