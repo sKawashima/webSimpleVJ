@@ -10,7 +10,7 @@ const inputArtist = document.getElementById('artist')
 let r = {}
 
 const sendParam = (title, artist) => {
-  // console.log(r)
+  console.log(r)
   ipcRenderer.send('updateParams', r)
 }
 
@@ -56,3 +56,21 @@ document.body.addEventListener('drop', function (e) {
     }
   })
 })
+
+// fonts
+const fonts = ['serif', 'sans-serif']
+
+for (const font of fonts) {
+  console.log(font)
+  const button = document.createElement('a')
+  button.innerHTML = font
+  button.addEventListener('click', () => {
+    r.font = font
+    const fontbuttons = document.getElementById('font').getElementsByTagName('a')
+    for (let i = 0; i < fontbuttons.length; i++) {
+      fontbuttons[i].classList.remove('active')
+    }
+    button.classList.add('active')
+  })
+  document.getElementById('font').appendChild(button)
+}

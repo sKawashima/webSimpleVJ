@@ -2792,6 +2792,11 @@ get-stream@^4.0.0:
   dependencies:
     pump "^3.0.0"
 
+get-system-fonts@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/get-system-fonts/-/get-system-fonts-2.0.0.tgz#a43b9a33f05c0715a60176d2aad5ce6e98f0a3c6"
+  integrity sha512-iiM/DavyF2nnLdELzPBSHojzQJVai9WiwrRzn5gp2dutJuerC8qHyBoh4lxfVdKGbnb9eZ4p8Oefbuc3yExB7Q==
+
 get-value@^2.0.3, get-value@^2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/get-value/-/get-value-2.0.6.tgz#dc15ca1c672387ca76bd37ac0a395ba2042a2c28"
