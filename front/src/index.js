@@ -25,6 +25,11 @@ const updateViews = (params) => {
     document.getElementById('background').style.backgroundColor = params.color
   }
   changeText(params)
+  if (params.title === '' && params.artist === '') {
+    document.getElementById('display').style.opacity = 0
+  } else {
+    document.getElementById('display').style.opacity = 1
+  }
   if (params.font) {
     document.getElementById('display').style.fontFamily = params.font
   }
