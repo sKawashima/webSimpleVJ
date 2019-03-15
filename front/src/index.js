@@ -20,6 +20,7 @@ const changeText = (params) => {
   }
 }
 
+let vizNumber
 const updateViews = (params) => {
   if (params.color) {
     document.getElementById('background').style.backgroundColor = params.color
@@ -34,10 +35,41 @@ const updateViews = (params) => {
     document.getElementById('display').style.fontFamily = params.font
   }
 
-  let vizNumber = Math.floor(Math.random() * 7)
-  while (vizNumber === 4) {
-    vizNumber = Math.floor(Math.random() * 7)
-    viz.vary()
+  switch (params.visualizer) {
+    case 'random':
+      while (true) {
+        vizNumber = 4
+        vizNumber = Math.floor(Math.random() * 7)
+        viz.vary()
+        if (vizNumber !== 4) break
+      }
+      break
+    case 'normal':
+      vizNumber = 0
+      break
+    case 'ball':
+      vizNumber = 1
+      break
+    case 'ring':
+      vizNumber = 2
+      break
+    case 'bira':
+      vizNumber = 3
+      break
+    case 'tile':
+      vizNumber = 5
+      break
+    case 'speed':
+      vizNumber = 6
+      break
+    default:
+      vizNumber = 0
+      break
+  }
+  if (params.visualizer === 'off') {
+    document.getElementsByTagName('canvas')[0].style.opacity = 0
+  } else {
+    document.getElementsByTagName('canvas')[0].style.opacity = 1
   }
   console.log(vizNumber)
   viz.showVisualization(vizNumber)

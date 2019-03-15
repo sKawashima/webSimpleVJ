@@ -56,9 +56,6 @@ document.body.addEventListener('drop', (e) => {
     })
 })
 
-// fonts
-const fonts = ['serif', 'sans-serif']
-
 const listViewButton = (array, viewId) => {
   console.log(viewId)
   for (const item of array) {
@@ -77,4 +74,10 @@ const listViewButton = (array, viewId) => {
   }
 }
 
+// fonts
+const fonts = ['serif', 'sans-serif']
 listViewButton(fonts, 'font')
+
+// visualizer
+const visualizer = ['random', 'normal', 'ball', 'ring', 'bira', 'tile', 'speed', 'off']
+listViewButton(visualizer, 'visualizer')
