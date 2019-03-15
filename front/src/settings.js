@@ -2,7 +2,8 @@ import './settings.sass'
 
 const ipcRenderer = require('electron').ipcRenderer
 const AColorPicker = require('a-color-picker')
-const id3js = require('id3js')
+const ID3 = require('id3-parser')
+const convertFileToBuffer = require('id3-parser/lib/universal/helpers').convertFileToBuffer
 
 const inputTitle = document.getElementById('title')
 const inputArtist = document.getElementById('artist')
@@ -40,21 +41,19 @@ inputArtist.addEventListener('click', () => {
   inputArtist.select(0, inputArtist.value.length)
 })
 
-document.ondragover = document.ondrop = function (e) {
+document.ondragover = document.ondrop = (e) => {
   e.preventDefault()
 }
 
-document.body.addEventListener('drop', function (e) {
+document.body.addEventListener('drop', (e) => {
   console.log('file dropped:', e.dataTransfer.files[0].path)
-  id3js({ file: e.dataTransfer.files[0].path }, (err, tags) => {
-    if (err) {
-      console.log(err)
-    } else {
+  convertFileToBuffer(e.dataTransfer.files[0])
+    .then(ID3.parse)
+    .then((tags) => {
       console.log(tags)
       inputTitle.value = tags.title
       inputArtist.value = tags.artist
-    }
-  })
+    })
 })
 
 // fonts
