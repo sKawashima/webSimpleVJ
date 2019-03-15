@@ -59,17 +59,22 @@ document.body.addEventListener('drop', (e) => {
 // fonts
 const fonts = ['serif', 'sans-serif']
 
-for (const font of fonts) {
-  console.log(font)
-  const button = document.createElement('a')
-  button.innerHTML = font
-  button.addEventListener('click', () => {
-    r.font = font
-    const fontbuttons = document.getElementById('font').getElementsByTagName('a')
-    for (let i = 0; i < fontbuttons.length; i++) {
-      fontbuttons[i].classList.remove('active')
-    }
-    button.classList.add('active')
-  })
-  document.getElementById('font').appendChild(button)
+const listViewButton = (array, viewId) => {
+  console.log(viewId)
+  for (const item of array) {
+    console.log(item)
+    const button = document.createElement('a')
+    button.innerHTML = item
+    button.addEventListener('click', () => {
+      r[viewId] = item
+      const fontbuttons = document.getElementById(viewId).getElementsByTagName('a')
+      for (let i = 0; i < fontbuttons.length; i++) {
+        fontbuttons[i].classList.remove('active')
+      }
+      button.classList.add('active')
+    })
+    document.getElementById(viewId).appendChild(button)
+  }
 }
+
+listViewButton(fonts, 'font')
